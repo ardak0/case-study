@@ -1,0 +1,158 @@
+processed 1,250,000 rows...
+processed 2,500,000 rows...
+processed 3,750,000 rows...
+processed 5,000,000 rows...
+
+=== DATA QUALITY SUMMARY ===
+Rows analyzed: 5,000,000
+
+-- Missing values (top 15 columns) --
+region_code: 1,000,903 (20.02%)
+rating: 831,398 (16.63%)
+
+-- Text formatting issues (top 10 columns) --
+transaction_id: leading/trailing whitespace in 0 rows (0.00%)
+customer_id: leading/trailing whitespace in 0 rows (0.00%)
+customer_name: leading/trailing whitespace in 0 rows (0.00%)
+email: leading/trailing whitespace in 0 rows (0.00%)
+phone: leading/trailing whitespace in 0 rows (0.00%)
+country: leading/trailing whitespace in 0 rows (0.00%)
+city: leading/trailing whitespace in 0 rows (0.00%)
+postal_code: leading/trailing whitespace in 0 rows (0.00%)
+department: leading/trailing whitespace in 0 rows (0.00%)
+category: leading/trailing whitespace in 0 rows (0.00%)
+transaction_id: embedded newline in 0 rows (0.00%)
+customer_id: embedded newline in 0 rows (0.00%)
+customer_name: embedded newline in 0 rows (0.00%)
+email: embedded newline in 0 rows (0.00%)
+phone: embedded newline in 0 rows (0.00%)
+country: embedded newline in 0 rows (0.00%)
+city: embedded newline in 0 rows (0.00%)
+postal_code: embedded newline in 0 rows (0.00%)
+department: embedded newline in 0 rows (0.00%)
+category: embedded newline in 0 rows (0.00%)
+
+-- Pattern validity counts --
+invalid transaction_id (expected TXN##########): 0
+invalid customer_id (expected CUST#####): 0
+invalid product_code (expected 8 chars A-Z0-9): 0
+invalid email: 1,426,959
+  - non-ASCII emails: 1,426,959
+  - structurally invalid ASCII emails: 0
+invalid phone (<7 digits): 0
+example invalid emails:
+  - 'sophie.çelik916@business.org'
+  - 'thomas.öztürk102@work.net'
+  - 'pierre.çelik233@company.com'
+  - 'thomas.şahin582@gmail.com'
+  - 'elif.yılmaz336@yahoo.com'
+  - 'ayşe.koç946@business.org'
+  - 'deniz.aydın479@outlook.com'
+  - 'charlotte.şahin368@business.org'
+  - 'david.koç768@business.org'
+  - 'william.aydın210@business.org'
+
+-- Numeric parsing / range issues --
+rating: missing=831,398 parse_fail=0 negative=0 out_of_range=0
+
+-- total_amount consistency --
+Checked 5,000,000 rows with all required numeric fields; mismatches (> $0.05): 0 (0.00%)
+
+-- order_date parsing --
+invalid order_date strings: 0
+date range: 2021-01-01 to 2021-12-14
+
+-- Categorical inconsistencies (normalization collisions) --
+
+-- Top categorical values (raw, top-k) --
+
+country:
+  'UK': 417,852
+  'France': 417,166
+  'Spain': 417,058
+  'Turkye': 416,849
+  'Germeny': 416,580
+  'Turkey': 416,562
+  'USA': 416,517
+  'Türkiye': 416,441
+  'Germany': 416,351
+  'Italy': 416,292
+
+city:
+  'Pariss': 417,564
+  'London': 417,521
+  'Istanbull': 417,132
+  'Paris': 417,053
+  'Rome': 416,973
+  'New York': 416,920
+  'Berlin': 416,668
+  'Amsterdam': 416,444
+  'Londoon': 416,124
+  'Madrid': 416,050
+
+department:
+  'Suport': 358,233
+  'HR': 358,186
+  'Finance': 357,845
+  'Marketng': 357,693
+  'Sales': 357,519
+  'Legal': 357,355
+  'Support': 357,123
+  'Operations': 356,988
+  'Operatons': 356,827
+  'Marketing': 356,730
+
+category:
+  'Softwrae': 501,800
+  'Furniture': 500,601
+  'Electronnics': 500,219
+  'Hardwer': 500,095
+  'Software': 500,025
+  'Furnitur': 499,822
+  'Electronics': 499,686
+  'Clothing': 499,656
+  'Hardware': 499,349
+  'Clothng': 498,747
+
+payment_method:
+  'Wire Transfer': 455,169
+  'PayPall': 455,059
+  'Crypto': 455,017
+  'PayPal': 454,918
+  'Check': 454,829
+  'Credt Card': 454,686
+  'Cryto': 454,652
+  'Credit Card': 454,618
+  'Wire Tranfer': 453,842
+  'Chek': 453,616
+
+status:
+  'Completed': 500,812
+  'Pendng': 500,325
+  'Completted': 500,234
+  'Rejected': 500,157
+  'Procesing': 499,959
+  'Approved': 499,880
+  'Processing': 499,848
+  'Pending': 499,821
+  'Aproved': 499,528
+  'Rejectd': 499,436
+
+tier:
+  'Enterprize': 501,307
+  'Professional': 500,768
+  'Basik': 500,559
+  'Profesional': 500,241
+  'Standard': 499,826
+  'Enterprise': 499,808
+  'Standart': 499,626
+  'Premium': 499,586
+  'Premum': 499,162
+  'Basic': 499,117
+
+region_code:
+  'EU': 1,001,104
+  '': 1,000,903
+  'APAC': 999,683
+  'LATAM': 999,679
+  'MEA': 998,631
