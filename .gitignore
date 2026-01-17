@@ -1,2 +1,4 @@
 # Ignore all CSV files (raw data, samples, outputs)
 *.csv
+
+.DS_Store
