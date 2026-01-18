@@ -78,7 +78,7 @@ class NumericChecks:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Chunked data-quality checks for large_dataset.csv")
-    ap.add_argument("--path", default="large_dataset.csv")
+    ap.add_argument("--path", default="data/raw/large_dataset.csv")
     ap.add_argument("--chunksize", type=int, default=200_000)
     ap.add_argument("--max-rows", type=int, default=0, help="0 means no limit")
     ap.add_argument("--top-k", type=int, default=25)
