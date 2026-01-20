@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: case_postgres
+    environment:
+      POSTGRES_USER: case_user
+      POSTGRES_PASSWORD: case_pass
+      POSTGRES_DB: case_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
