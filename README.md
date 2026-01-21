@@ -209,6 +209,9 @@ These items were intentionally excluded to keep the project focused and concise.
 
 ---
 
-Final Note
+API Documentation
 
-This project is designed to reflect how a real-world analytics pipeline would be structured, documented, and delivered, with emphasis on correctness, clarity, and maintainability.
+The backend API exposes interactive documentation via Swagger UI.
+
+Once the backend is running, API documentation is available at:
+http://127.0.0.1:8000/docs

@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 DUCKDB_PATH = "warehouse.duckdb"
 
 PG_CONFIG = {
-    "host": "localhost",
+    "host": "postgres",
     "port": 5432,
     "dbname": "case_db",
     "user": "case_user",

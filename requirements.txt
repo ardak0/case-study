@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+duckdb
+psycopg2-binary
