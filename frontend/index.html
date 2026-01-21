@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+
+      <p>Select a user to simulate role-based access:</p>
+
+      <select id="user">
+        <option value="admin_user">Admin</option>
+        <option value="normal_user_a">User A</option>
+        <option value="normal_user_b">User B</option>
+        <option value="guest_user">Guest</option>
+      </select>
+
+      <br /><br />
+
+      <button onclick="login()">Continue</button>
+    </div>
+
+    <script>
+      function login() {
+        const user = document.getElementById("user").value;
+        localStorage.setItem("username", user);
+        window.location.href = "dashboard.html";
+      }
+    </script>
+  </body>
+</html>

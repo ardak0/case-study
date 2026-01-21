@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Header, HTTPException, Depends
 import duckdb
 import psycopg2
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # --- DB CONFIG ---
 DUCKDB_PATH = "warehouse.duckdb"
@@ -14,6 +16,14 @@ PG_CONFIG = {
 }
 
 app = FastAPI(title="Analytics API with Roles")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # case study için yeterli
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],  # X-User için GEREKLİ
+)
+
 
 
 # --- Connections ---

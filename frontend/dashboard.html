@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>
+        Analytics Dashboard
+        <span id="roleBadge" class="role-badge"></span>
+      </h2>
+
+      <p id="user"></p>
+
+      <div class="actions">
+        <button onclick="loadRevenue()">Revenue by Country</button>
+        <button onclick="loadDaily()">Daily Revenue</button>
+        <button class="secondary" onclick="loadUsers()">
+          Admin: List Users
+        </button>
+        <button class="secondary" onclick="logout()">Logout</button>
+      </div>
+
+      <div style="margin-top: 20px">
+        <canvas id="chart" height="120"></canvas>
+      </div>
+
+      <h3 style="margin-top: 20px">Raw Response</h3>
+      <pre id="output">Select an action.</pre>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
