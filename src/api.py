@@ -18,10 +18,10 @@ PG_CONFIG = {
 app = FastAPI(title="Analytics API with Roles")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # case study için yeterli
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],  # X-User için GEREKLİ
+    allow_headers=["*"],  
 )
 
 
