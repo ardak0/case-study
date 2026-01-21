@@ -156,26 +156,41 @@ The frontend is intentionally minimal and exists solely to demonstrate backend i
 
 Requirements:
 
-- Python 3.11
-- Docker (for PostgreSQL)
+- Docker
+- Docker Compose
 
-Setup steps:
+The project is fully containerized. No local Python environment setup is required.
 
-Create and activate the environment:
-conda create -n case-env python=3.11
-conda activate case-env
+---
 
-Install dependencies:
-pip install fastapi uvicorn duckdb psycopg2-binary
+Setup Steps:
 
-Start PostgreSQL:
-docker compose up -d
+1. Build and start all services:
 
-Run the backend:
-uvicorn src.api:app --reload
+   docker compose up --build
 
-Open the frontend:
-frontend/index.html
+2. Verify that the services are running:
+   - Backend API (FastAPI + Swagger):
+     http://localhost:8000/docs
+
+   - Frontend dashboard:
+     http://localhost:8080
+
+---
+
+Authentication:
+
+Requests are authenticated using the X-User HTTP header.
+The following users are pre-seeded in the PostgreSQL database:
+
+- admin_user (role: admin)
+- normal_user_a (role: user)
+- normal_user_b (role: user)
+- guest_user (role: guest)
+
+Example API request:
+
+curl -H "X-User: admin_user" http://localhost:8000/metrics/revenue-by-country
 
 ---
 
