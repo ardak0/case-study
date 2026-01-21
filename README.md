@@ -215,3 +215,5 @@ The backend API exposes interactive documentation via Swagger UI.
 
 Once the backend is running, API documentation is available at:
 http://127.0.0.1:8000/docs
+
+Architecture Diagram can be found at docs/architecture.png
